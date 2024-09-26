@@ -5,19 +5,12 @@ terraform {
       version = "4.3.0"
     }
   }
-  backend "azurerm" {
-    resource_group_name  = "regsg"  # Can be passed via `-backend-config=`"resource_group_name=<resource group name>"` in the `init` command.
-    storage_account_name = "sabetfsyx8yh6"                      # Can be passed via `-backend-config=`"storage_account_name=<storage account name>"` in the `init` command.
-    container_name       = "tfstate"                       # Can be passed via `-backend-config=`"container_name=<container name>"` in the `init` command.
-    key                  = "web.terraform.tfstate"        # Can be passed via `-backend-config=`"key=<blob key name>"` in the `init` command.
-  }
-
 
   }
 
 
 provider "azurerm" {
-  
+  #subscription_id = "3291a0d9-96b5-41ee-9b93-5b28b419919f" 
   features {
     key_vault {
       purge_soft_delete_on_destroy    = true
@@ -40,7 +33,7 @@ resource "azurerm_resource_group" "rg_backend" {
 }
 
 resource "azurerm_storage_account" "sa_backend" {
-  name                     = "${lower(var.sa_backend_name)}${random_string.random_string.result}"
+  name                     = "sgdthrh"
   resource_group_name      = azurerm_resource_group.rg_backend.name 
   location                 = azurerm_resource_group.rg_backend.location
   account_tier             = "Standard"
@@ -75,16 +68,19 @@ resource "azurerm_key_vault" "kv_backend" {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
 
+
+     tenant_id = "b60533c6-2f92-498c-bf7a-eb814d42c71f"
+    object_id = data.azurerm_client_config.current.object_id
     key_permissions = [
-      "Get","List","Create",
-    ]
+      "List", "Create", "Delete", "Get", "Purge", "Recover", "Update", "GetRotationPolicy", "SetRotationPolicy"
+    ]   
 
     secret_permissions = [
-      "Get","Set","List",
+      "Get","Set","List","Delete","Recover","Purge",
     ]
 
     storage_permissions = [
-      "Get","Set","List",
+      "Get","Set","List","Delete","Purge",
     ]
   }
 }
