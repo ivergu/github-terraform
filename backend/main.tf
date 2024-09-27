@@ -5,7 +5,12 @@ terraform {
       version = "4.3.0"
     }
   }
-
+ backend "azurerm" {
+    resource_group_name  = "ergrstdg"  
+    storage_account_name = "drgdrgdg34645634"                    
+    container_name       = "tfstate"                     
+    key                  = "backend.terraform.tfstate"        
+  }
   }
 
 
@@ -33,7 +38,7 @@ resource "azurerm_resource_group" "rg_backend" {
 }
 
 resource "azurerm_storage_account" "sa_backend" {
-  name                     = "sgdthrh"
+  name                     = var.sa_backend_name
   resource_group_name      = azurerm_resource_group.rg_backend.name 
   location                 = azurerm_resource_group.rg_backend.location
   account_tier             = "Standard"
@@ -42,7 +47,7 @@ resource "azurerm_storage_account" "sa_backend" {
 }
 
 resource "azurerm_storage_container" "container1" {
-  name                  = var.sc_backend_name
+  name                  = "tfstate"
   storage_account_name  = azurerm_storage_account.sa_backend.name 
   container_access_type = "private"
 }
@@ -69,10 +74,10 @@ resource "azurerm_key_vault" "kv_backend" {
     object_id = data.azurerm_client_config.current.object_id
 
 
-     tenant_id = "b60533c6-2f92-498c-bf7a-eb814d42c71f"
-    object_id = data.azurerm_client_config.current.object_id
+   #  tenant_id = "b60533c6-2f92-498c-bf7a-eb814d42c71f"
+    #object_id = data.azurerm_client_config.current.object_id
     key_permissions = [
-      "List", "Create", "Delete", "Get", "Purge", "Recover", "Update", "GetRotationPolicy", "SetRotationPolicy"
+      "List", "Create", "Delete", "Get", "Purge", "Recover",
     ]   
 
     secret_permissions = [
