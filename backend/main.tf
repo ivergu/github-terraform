@@ -6,16 +6,16 @@ terraform {
     }
   }
  backend "azurerm" {
-    resource_group_name  = "ergrstdg"  
-    storage_account_name = "drgdrgdg34645634"                    
+    resource_group_name  = "rg-backend-1"  
+    storage_account_name = "storageacusk370"                    
     container_name       = "tfstate"                     
-    key                  = "backend.terraform.tfstate"        
+    key                  = "backends.terraform.tfstate"        
   }
   }
 
 
 provider "azurerm" {
-  #subscription_id = "3291a0d9-96b5-41ee-9b93-5b28b419919f" 
+  subscription_id = "3291a0d9-96b5-41ee-9b93-5b28b419919f" 
   features {
     key_vault {
       purge_soft_delete_on_destroy    = true
@@ -38,7 +38,7 @@ resource "azurerm_resource_group" "rg_backend" {
 }
 
 resource "azurerm_storage_account" "sa_backend" {
-  name                     = var.sa_backend_name
+  name                     = "${lower(var.sa_backend_name)}${random_string.random_string.result}"
   resource_group_name      = azurerm_resource_group.rg_backend.name 
   location                 = azurerm_resource_group.rg_backend.location
   account_tier             = "Standard"
@@ -47,7 +47,7 @@ resource "azurerm_storage_account" "sa_backend" {
 }
 
 resource "azurerm_storage_container" "container1" {
-  name                  = "tfstate"
+  name                  = var.sc_backend_name
   storage_account_name  = azurerm_storage_account.sa_backend.name 
   container_access_type = "private"
 }

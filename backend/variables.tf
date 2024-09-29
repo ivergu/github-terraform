@@ -1,7 +1,7 @@
 variable "rg_backend_name" {
     type = string
     description = "(optional) describe your variable"
-    default = "ergrstdg"
+    default = "rg-back"
 }
 
 variable "rg_backend_location" {
@@ -13,7 +13,7 @@ variable "rg_backend_location" {
 variable "sa_backend_name" {
     type = string
     description = "(optional) describe your variable"
-    default = "drgdrgdg34645634"
+    default = "storageAc"
 }
 
 variable "sc_backend_name" {
@@ -25,11 +25,11 @@ variable "sc_backend_name" {
 variable "kv_backend_name" {
     type = string
     description = "(optional) describe your variable"
-    default = "tdghtdg456546"
+    default = "keyVal"
 }
 
 variable "sa_backend_accesskey_name" {
     type = string
     description = "(optional) describe your variable"
-    default = "sfdver436746734"
+    default = "saBackend-key-name"
 }
