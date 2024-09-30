@@ -11,6 +11,10 @@ on:
         description: 'What action to perform? (apply/destroy)'
         required: true
         default: 'apply'
+        type: choice
+        options:
+          - 'apply'
+          - 'destroy' 
 
 jobs:  
 
