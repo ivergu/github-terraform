@@ -14,7 +14,7 @@ env:
   WORKING_DIR: ./web
 
 jobs:  
-  dev_stage:
+   dev_stage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
