@@ -15,9 +15,7 @@ env:
 
 jobs:  
   dev_stage:
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
       - uses: actions/checkout@v3
