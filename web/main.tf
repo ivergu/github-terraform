@@ -13,7 +13,7 @@ resource "random_string" "random_string" {
   special = false
   upper   = false
 
-}
+} 
 
 resource "azurerm_resource_group" "rg_web" {
   name     = local.rg_name
