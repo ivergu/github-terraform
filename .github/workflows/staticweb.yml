@@ -42,7 +42,6 @@ jobs:
         
       - name: 'Terraform apply'
         if: github.event.inputs.action_type == 'apply'
-        id: apply
         run: terraform apply -auto-approve
         working-directory: ${{ env.WORKING_DIR }}
 
