@@ -3,7 +3,7 @@ name: web
 on:
   push:
     paths:
-      - 'IAC/github-terraform/web/**'
+      - 'web/**'
 
   workflow_dispatch: 
 
@@ -19,7 +19,7 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }} 
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SYBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      WORKING_DIR: ./IAC/github-terraform/web
+      WORKING_DIR: ./web
 
     steps:
 
