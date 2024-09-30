@@ -5,7 +5,7 @@ on:
     paths:
       - 'IAC/github-terraform/web/**'
 
-  work_dispatch: 
+  workglow_dispatch: 
 
   jobs:  
 
