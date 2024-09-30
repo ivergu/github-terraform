@@ -63,7 +63,7 @@ jobs:
         
 
 
- stage_prod:
+ prod:
     needs: stage_prod
     runs-on: ubuntu-latest
     enviroment:
@@ -89,9 +89,9 @@ jobs:
         run: curl $(terraform output -raw primary_web_endpoint)
         working-directory: ${{ env.WORKING_DIR }}
 
-    - name: Get Web Endpoint
-      id: get_web_endpoint
-      run: echo "WEB_ENDPOINT=$(terraform output -raw primary_web_endpoint)"
-      working-directory: ${{ env.WORKING_DIR }}
+     - name: Get Web Endpoint
+       id: get_web_endpoint
+       run: echo "WEB_ENDPOINT=$(terraform output -raw primary_web_endpoint)"
+       working-directory: ${{ env.WORKING_DIR }}
   
 
