@@ -7,35 +7,35 @@ on:
 
   workflow_dispatch: 
 
-  jobs:  
+jobs:  
 
-    resourcegroups:
+  resourcegroups:
 
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      name: 'web'
-      env:
-        ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }} 
-        ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SYBSCRIPTION_ID }}
-        ARM_TENANT_ID: ${{ secret.AZURE_TENANT_ID }}
-        WORKING_DIR: ./IAC/github-terraform/web
+    name: 'web'
+    env:
+      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }} 
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SYBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secret.AZURE_TENANT_ID }}
+      WORKING_DIR: ./IAC/github-terraform/web
 
-      steps:
+    steps:
 
-        - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-        - name: 'Terraform init'
-          id: init
-          run: terraform init
-          working-directory: ${{ env.WORKING_DIR }}
+      - name: 'Terraform init'
+        id: init
+        run: terraform init
+        working-directory: ${{ env.WORKING_DIR }}
 
-        - name: 'Terraform plan'
-          id: plan
-          run: terraform plan
-          working-directory: ${{ env.WORKING_DIR }}
+      - name: 'Terraform plan'
+        id: plan
+        run: terraform plan
+        working-directory: ${{ env.WORKING_DIR }}
 
-        - name: 'Teraform apply'
-          id: apply
-          run: terraform apply -auto-approve
-          working-directory: ${{ env.WORKING_DIR }}
+      - name: 'Teraform apply'
+        id: apply
+        run: terraform apply -auto-approve
+        working-directory: ${{ env.WORKING_DIR }}
