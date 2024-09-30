@@ -39,7 +39,7 @@ jobs:
         id: plan
         run: terraform plan
         working-directory: ${{ env.WORKING_DIR }}
-
+        
       - name: 'Terraform apply'
         if: github.event.inputs.action_type == 'apply'
         id: apply
