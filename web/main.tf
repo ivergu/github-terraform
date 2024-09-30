@@ -45,6 +45,8 @@ output "primary_web_endpoint" {
   value = azurerm_storage_account.sa_web.primary_web_endpoint
 }
 
+#Destroy
+
 /*
 resource "random_string" "random_string" {
   length  = 6
