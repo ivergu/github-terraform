@@ -11,7 +11,7 @@ variable "rg_location" {
 
 }
 
-variable "sa_name" {
+variable "sa_name" { 
     type = string
     description = "(optional) describe your variable"
     default = "saweb" 
