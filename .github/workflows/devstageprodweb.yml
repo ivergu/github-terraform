@@ -28,11 +28,11 @@ jobs:
         run: terraform workspace select dev || terraform workspace new dev
         working-directory: ${{ env.WORKING_DIR }}
 
-     - name: Terraform apply dev
+      - name: Terraform apply dev
         run: terraform apply -auto-approve
         working-directory: ${{ env.WORKING_DIR }}
 
-     - name: Test dev
+      - name: Test dev
         run: curl $(terraform output -raw primary_web_endpoint)
         working-directory: ${{ env.WORKING_DIR }}
 
