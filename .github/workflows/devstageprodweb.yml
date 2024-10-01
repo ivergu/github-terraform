@@ -66,9 +66,9 @@ jobs:
   prod:
     needs: stage_prod
     runs-on: ubuntu-latest
-     enviroment:
-       name: production
-       url: ${{ steps.get_web_endpoint.outputs_WEB_ENDPOINT }}
+    enviroment:
+      name: production
+      url: ${{ steps.get_web_endpoint.outputs.WEB_ENDPOINT }}
     steps:
       - name: Checkout
       - uses: actions/checkout@v3
