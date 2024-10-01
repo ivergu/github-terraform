@@ -38,7 +38,7 @@ jobs:
 
 
 
- stage_prod:
+  stage_prod:
     needs: dev_stage
     runs-on: ubuntu-latest
     steps:
@@ -53,17 +53,17 @@ jobs:
         run: terraform workspace select stage || terraform workspace new stage
         working-directory: ${{ env.WORKING_DIR }}
 
-     - name: Terraform apply stage
+      - name: Terraform apply stage
         run: terraform apply -auto-approve
         working-directory: ${{ env.WORKING_DIR }}
 
-     - name: Test stage
+      - name: Test stage
         run: curl $(terraform output -raw primary_web_endpoint)
         working-directory: ${{ env.WORKING_DIR }}
         
 
 
- prod:
+  prod:
     needs: stage_prod
     runs-on: ubuntu-latest
     enviroment:
@@ -81,17 +81,17 @@ jobs:
         run: terraform workspace select prod || terraform workspace new prod
         working-directory: ${{ env.WORKING_DIR }}
 
-     - name: Terraform apply prod
+      - name: Terraform apply prod
         run: terraform apply -auto-approve
         working-directory: ${{ env.WORKING_DIR }}
 
-     - name: Test prod
+      - name: Test prod
         run: curl $(terraform output -raw primary_web_endpoint)
         working-directory: ${{ env.WORKING_DIR }}
 
-     - name: Get Web Endpoint
-       id: get_web_endpoint
-       run: echo "WEB_ENDPOINT=$(terraform output -raw primary_web_endpoint)"
-       working-directory: ${{ env.WORKING_DIR }}
+      - name: Get Web Endpoint
+        id: get_web_endpoint
+        run: echo "WEB_ENDPOINT=$(terraform output -raw primary_web_endpoint)"
+        working-directory: ${{ env.WORKING_DIR }}
   
 
