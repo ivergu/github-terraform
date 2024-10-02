@@ -9,7 +9,7 @@ on:
 
 jobs:
   terraform:
-    name: 'Validate'
+    name: 'Validate' 
     runs-on: ubuntu-latest
 
     env:
@@ -19,8 +19,8 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
       WORKING_DIR: ./web
 
-     steps:
-       - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Terraform init
         id: init
