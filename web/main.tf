@@ -33,12 +33,18 @@ resource "azurerm_storage_account" "sa_web" {
 }
 
 resource "azurerm_storage_blob" "index_html" {
-  name = var.index_document
+  name = "index.html"
   storage_account_name = azurerm_storage_account.sa_web.name
   storage_container_name = "$web"
   type = "Block"
   content_type = "text/html"
   source_content = "${var.source_content}${local.web_suffix}"
+  content_md5 = md5("${var.source_content}${local.web_suffix}")
+  
+}
+
+output "innhold" {
+  value = "${var.source_content}${local.web_suffix}"
 }
 
 output "primary_web_endpoint" {
