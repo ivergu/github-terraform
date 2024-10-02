@@ -7,7 +7,7 @@ on:
     paths:
       - 'web/**'
 
-jobs:
+jobs: 
   terraform:
     name: 'Validate' 
     runs-on: ubuntu-latest
