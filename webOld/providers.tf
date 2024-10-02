@@ -5,12 +5,11 @@ terraform {
       version = "4.3.0"
     }
   }
-
-   backend "azurerm" {
-    resource_group_name  = "rg-backend-1"  
-    storage_account_name = "storageacusk370"                    
+  backend "azurerm" {
+    resource_group_name  = "ergrstdg"  
+    storage_account_name = "drgdrgdg34645634"                    
     container_name       = "tfstate"                     
-    key                  = "website2.terraform.tfstate"        
+    key                  = "web-demo.terraform.tfstate"        
   }
   }
 
