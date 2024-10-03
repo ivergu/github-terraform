@@ -20,7 +20,7 @@ variable "sa_name" {
 variable "source_content" {
     type = string
     description = "(optional) describe your variable"
-    default = "<h1>Web pagge made with t erraform  CI/CD update del 2</h1>"
+    default = "<h1>Web pagge made with  t erraform  CI/CD update del 2</h1>"
 }
 
 variable "index_document" {
