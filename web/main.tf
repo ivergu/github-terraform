@@ -53,7 +53,7 @@ output "primary_web_endpoint" {
  
   
 
-/*
+/* 
 resource "random_string" "random_string" {
   length  = 6
   special = false
