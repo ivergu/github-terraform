@@ -3,7 +3,7 @@ name: 'Terraform CI/CD infra'
 on:
   push:
     paths:
-      - 'oblig2/**'
+      - 'oblig2/global'
   workflow_dispatch:
 
 env:
@@ -11,7 +11,7 @@ env:
   ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }} 
   ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-  WORKING_DIR: ./oblig2
+  WORKING_DIR: ./oblig2/global
 
 jobs:  
   dev_stage:
