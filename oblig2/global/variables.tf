@@ -43,7 +43,7 @@ variable "sa_backend_accesskey_name" {
 variable "rg_name" {
     type = string
     description = "(optional) describe your variable"
-    default = "rg-infra-backend-oblig2"
+    default = "rg-infra-resource-oblig2"
 }
 
 variable "rg_location" {
