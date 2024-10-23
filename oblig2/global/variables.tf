@@ -64,7 +64,7 @@ variable "source_content" {
     description = "(optional) describe your variable"
     default = "<h1>Oblig 2 testsss</h1>"
 }
- 
+  
 variable "index_document" {
     type = string
     description = "(optional) describe your variable"
