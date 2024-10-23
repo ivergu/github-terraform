@@ -66,7 +66,7 @@ resource "azurerm_storage_blob" "index_html" {
   content_md5 = md5("${var.source_content}${local.web_suffix}")
   
 }
-
+ 
 output "innhold" {
   value = "${var.source_content}${local.web_suffix}"
 }
